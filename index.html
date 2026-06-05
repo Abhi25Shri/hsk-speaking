@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK 1 Speaking Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎤 HSK 1 Speaking Practice</h1>
+            <p class="subtitle">Master HSK Level 1 Chinese Pronunciation</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" onclick="switchTab('vocabulary')">Vocabulary</button>
+            <button class="tab-button" onclick="switchTab('flashcards')">Flashcards</button>
+            <button class="tab-button" onclick="switchTab('dialogue')">Dialogues</button>
+        </nav>
+
+        <!-- Vocabulary Tab -->
+        <section id="vocabulary" class="tab-content active">
+            <div class="filter-controls">
+                <input type="text" id="searchInput" placeholder="Search words..." class="search-box">
+                <select id="categoryFilter" class="filter-dropdown">
+                    <option value="all">All Categories</option>
+                    <option value="greetings">Greetings</option>
+                    <option value="family">Family</option>
+                    <option value="numbers">Numbers</option>
+                    <option value="food">Food</option>
+                    <option value="actions">Actions</option>
+                </select>
+            </div>
+
+            <div id="vocabularyList" class="word-grid">
+                <!-- Words will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Flashcards Tab -->
+        <section id="flashcards" class="tab-content">
+            <div class="flashcard-container">
+                <div id="flashcard" class="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <div class="chinese-text" id="flashcardChinese">你好</div>
+                            <p class="hint">Click to reveal</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <div class="pinyin-text" id="flashcardPinyin">nǐ hǎo</div>
+                            <div class="english-text" id="flashcardEnglish">Hello</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button onclick="previousCard()" class="btn btn-secondary">← Previous</button>
+                    <button id="speakBtn" onclick="speakWord()" class="btn btn-primary">🔊 Speak</button>
+                    <button onclick="nextCard()" class="btn btn-secondary">Next →</button>
+                </div>
+
+                <div class="card-counter">
+                    <span id="currentCard">1</span> / <span id="totalCards">20</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dialogues Tab -->
+        <section id="dialogue" class="tab-content">
+            <div class="dialogue-selector">
+                <h3>Select a Dialogue</h3>
+                <div class="dialogue-buttons">
+                    <button onclick="loadDialogue(1)" class="dialogue-btn">Greeting Dialogue</button>
+                    <button onclick="loadDialogue(2)" class="dialogue-btn">Introduction Dialogue</button>
+                    <button onclick="loadDialogue(3)" class="dialogue-btn">Polite Phrases Dialogue</button>
+                </div>
+            </div>
+
+            <div id="dialogueContent" class="dialogue-box">
+                <h3 id="dialogueTitle">Select a dialogue to begin</h3>
+                <div id="dialogueLines" class="dialogue-lines">
+                    <!-- Dialogue content will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Stats -->
+        <section class="stats-section">
+            <h3>Your Practice Stats</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="wordsLearned">0</div>
+                    <div class="stat-label">Words Learned</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="sessionCount">0</div>
+                    <div class="stat-label">Sessions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="practiceMins">0</div>
+                    <div class="stat-label">Minutes Today</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
